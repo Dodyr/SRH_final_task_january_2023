@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
 
 struct travel_data {
 	std::string location;
