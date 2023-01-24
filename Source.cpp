@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
+#include <vector>
+
 
 struct travel_data {
 	std::string location;
@@ -21,7 +24,21 @@ struct person {
 	int socks;
 };
 
+person read_file(std::ifstream & fin, travel_data & data)
+{
+	person result;
+	while (!fin.eof()) {
+
+	}
+	return result;
+}
 
 int main() {
-
+	std::ifstream fin("text.txt");
+	int j = 0;
+	if (fin.is_open()) {
+		travel_data data;
+		fin.close();
+	}
+	return 0;
 }
