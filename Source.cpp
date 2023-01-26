@@ -22,16 +22,38 @@ struct person {
 	int underwear;
 	int pants;
 	int socks;
+
+	person(std::string Name, std::list<std::string> Items, int Underwear, int Pants, int Socks):
+		name(Name), items(Items), underwear(Underwear), pants(Pants), socks(Socks)
+	{}
 };
 
-person read_file(std::ifstream & fin, travel_data & data)
+void read_file(std::ifstream& fin, travel_data& data)
 {
-	person result;
 	while (!fin.eof()) {
-
+		std::string name;
+		std::list<std::string> items;
+		int underwear;
+		int pants;
+		int socks;
+		getline(fin, name);
+		fin >> underwear >> pants >> socks;
+		fin.ignore();
+		while () {
+			std::string item;
+			getline(fin, item, ',');
+			items.push_back(item);
+		}
+		person Person(name, items, underwear, pants, socks);
+		data.people.push_back(Person);
 	}
-	return result;
 }
+
+// input example
+// name
+//1 2 3
+//item1, item2, item3...
+
 
 int main() {
 	std::ifstream fin("text.txt");
