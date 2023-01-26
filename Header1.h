@@ -35,6 +35,6 @@ struct item {
 
 void read_file(std::ifstream& fin, travel_data& data);
 
-void start();
+void start(travel_data & data);
 
-void start_people();
+person start_people();

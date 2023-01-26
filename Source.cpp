@@ -9,11 +9,12 @@ using namespace std;
 
 
 int main() {
-	std::ifstream fin("text.txt");
-	int j = 0;
+	travel_data data;
+	start(data);
+	/*std::ifstream fin("text.txt");
 	if (fin.is_open()) {
 		travel_data data;
 		fin.close();
-	}
+	}*/
 	return 0;
 }
