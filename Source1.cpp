@@ -1,5 +1,5 @@
 #include "Header1.h"
-
+//not finished
 void read_file(std::ifstream& fin, travel_data& data)
 {
 	while (!fin.eof()) {
@@ -16,6 +16,7 @@ void read_file(std::ifstream& fin, travel_data& data)
 		data.people.push_back(Person);
 	}
 }
+
 
 void start(travel_data & data) {
 	std::string Location;
@@ -56,7 +57,6 @@ void start(travel_data & data) {
 		data.people.push_back(Person);
 		std::cout << "Person added\n";
 	}
-
 }
 
 bool check_date(int Date[3]) {
@@ -107,4 +107,21 @@ person start_people() {
 	}
 	person Person(person_name, items);
 	return Person;
+}
+
+
+void print_data(travel_data data) {
+	std::cout << "Location: " << data.location << std::endl;
+	std::cout << "Duration: from " << data.start[0] << "." << data.start[1]<< "." << data.start[2] << " to " << data.end[0] << "." << data.end[1] << "." << data.end[2] << std::endl;
+	std::cout << "People: " << std::endl;
+	for (std::list<person>::iterator it = data.people.begin(); it != data.people.end(); ++it) {
+		person Person = *it;
+		std::cout << "Name: " << Person.name << std::endl;
+		std::cout << "Items: ";
+		for (std::list<item>::iterator itt = Person.items.begin(); itt != Person.items.end(); ++itt) {
+			item Item = *itt;
+			std::cout << Item.name << " " << Item.amount << " / ";
+		}
+		std::cout << std::endl;
+	}
 }

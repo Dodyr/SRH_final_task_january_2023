@@ -11,6 +11,7 @@ using namespace std;
 int main() {
 	travel_data data;
 	start(data);
+	print_data(data);
 	/*std::ifstream fin("text.txt");
 	if (fin.is_open()) {
 		travel_data data;
