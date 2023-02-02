@@ -125,3 +125,74 @@ void print_data(travel_data data) {
 		std::cout << std::endl;
 	}
 }
+
+bool search(travel_data data)
+{
+	std::list<person>::iterator it = data.people.begin();
+	std::string name;
+	std::cout << "Enter the name of the person: ";
+	std::cin >> name;
+	while (it != data.people.end())
+	{
+		person Person = *it;
+		if (Person.name == name)
+		{
+			std::cout << "Person found\n";
+			std::cout << "Name: " << Person.name << std::endl;
+			std::cout << "Items: ";
+			for (std::list<item>::iterator itt = Person.items.begin(); itt != Person.items.end(); ++itt) {
+				item Item = *itt;
+				std::cout << Item.name << " " << Item.amount << " / ";
+			}
+			std::cout << std::endl;
+			return true;
+		}
+		else
+			it++;
+	}
+	return false;
+}
+
+bool delete_person(travel_data& data) {
+	std::list<person>::iterator it = data.people.begin();
+	std::string name;
+	std::cout << "Enter the name of the person: ";
+	std::cin >> name;
+	while (it != data.people.end())
+	{
+		person Person = *it;
+		if (Person.name == name)
+		{
+			data.people.erase(it);
+			return true;
+		}
+		it++;
+	}
+	return false;
+}
+
+bool cmp_by_name(const person& a, const person& b)
+{
+	return a.name < b.name;
+}
+
+/*void write_to_file(travel_data data, std::ofstream fout) {
+	fout << "Location: " << data.location << std::endl;
+	fout << "Duration: from " << data.start[0] << "." << data.start[1] << "." << data.start[2] << " to " << data.end[0] << "." << data.end[1] << "." << data.end[2] << std::endl;
+	fout << "People: " << std::endl;
+	for (std::list<person>::iterator it = data.people.begin(); it != data.people.end(); ++it) {
+		person Person = *it;
+		fout << "Name: " << Person.name << std::endl;
+		fout << "Items: ";
+		for (std::list<item>::iterator itt = Person.items.begin(); itt != Person.items.end(); ++itt) {
+			item Item = *itt;
+			fout << Item.name << " " << Item.amount << " / ";
+		}
+		fout << std::endl;
+	}
+}*/
+
+void add_person(travel_data& data) {
+	person Person = start_people();
+	data.people.push_back(Person);
+}

@@ -44,3 +44,13 @@ bool check_date(int Date[3]);
 person start_people();
 
 void print_data(travel_data data);
+
+bool search(travel_data data);
+
+bool delete_person(travel_data & data);
+
+bool cmp_by_name(const person& a, const person& b);
+
+//void write_to_file(travel_data data, std::ofstream fout);
+
+void add_person(travel_data& data);
